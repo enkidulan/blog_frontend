@@ -11,8 +11,10 @@ before_script:
 - npm install --quiet -g grunt-cli karma bower
 - npm install
 - bower install
-after_script:
+before_deploy:
 - git add bin
+- git commit -m "updated static builds"
+- git fetch --tags
 script: grunt
 deploy:
   provider: releases
