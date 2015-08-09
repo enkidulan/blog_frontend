@@ -1,6 +1,4 @@
 language: python
-env:
-- TAGNAME=`date +"%Y%m%d-%H%M"`
 python:
 - "3.4"
 before_script:
@@ -13,18 +11,14 @@ before_script:
 - npm install --quiet -g grunt-cli karma bower
 - npm install
 - bower install
-after_success:
-- ls
-- git status
-- git add bin
-- cd ..
-- ls
-- sed -ri s/version=\'[0-9\-]+.\'/version=\'$TAGNAME\'/g setup.py
-- cat setup.py
-- git add setup.py
-- git commit -m "preparing new version $TAGNAME" --author 'BuildBot <enkidulan@gmail.com>'
-- git fetch --tags
-- git tag $TAGNAME
-- git push master origin
-- git push --tags
 script: grunt
+deploy:
+    skip_cleanup: true
+    provider: releases
+    api_key:
+        secure: KC7P3xyUUSu0hepYFAUEQj3ieLbVUbQfhyvXlPYC5fcW8wyGIl+1e+8PwM7OHasJFFGMLYSjdBcLk+JuR94ILMwUpcuC2H5/sUY6v5k5s6+AL62qxhUDVJqxMWCaBHVkPhIv8WpVHEokJ/OhV/Ey2TzKmAwlzkn0ZOFKFmNR+1SFDTrZ8xIEhE9BC2qeKs8nb0K/Vdbafkytg1N6rliTm42An/ffZ2KAii32bgPMxuGQMtGzHmtlzV85H/vS2bBPvlXDr/ItGK7gevfN0CdCeWfxQk47fBGbAj+SKcbInwiGiFlJMBl3qYwtXH5hEbSQrM4CPPs9f+VfaASrNuOS5PserFdJT9R8tTdbBnX/D4hMGilEkT+SOrVc5/ge/afywH9VVoxFPqmL6uV3QAssr1lZUbZnC7399Br7TSleXf2cUSrdOl+qpoX1PrpSyCunjcSRyC/DhcCosCvNhHLgOB0bukxuWBTtc/aHzx5j5DIPDKAWI8lQzMr4CiQISrdWYA8YP/d1lN8qP5Fmhibppwm+vQxIRpHKoIbnYXotpeaElbs5geTp9+CA0PeNKwSrCHz5h5LqCfGEzJtuIw1FTqlQ6bZKSA/AoOMFAPFu18JTYp2Ch/h1k3fNjsb1mj+meag7GsuYL7kfC26FVLk+RrmbXqrNu5p9BsI0Je8jNWU=
+    file:
+        - blog_frontend/bin
+    skip_cleanup: true
+    on:
+        tags: true
