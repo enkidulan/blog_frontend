@@ -14,14 +14,17 @@ before_script:
 - npm install
 - bower install
 after_success:
+- pwd
+- ls
+- ls ..
 - git status
 - git add bin
 - sed -ri s/version=\'[0-9\-]+.\'/version=\'$TAGNAME\'/g setup.py
 - cat setup.py
 - git add setup.py
-- git commit -m "preparing new version $TAGNAME"
+- git commit -m "preparing new version $TAGNAME" --author 'BuildBot <enkidulan@gmail.com>'
 - git fetch --tags
 - git tag $TAGNAME
-- git push
+- git push master origin
 - git push --tags
 script: grunt
