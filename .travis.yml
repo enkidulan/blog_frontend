@@ -21,3 +21,5 @@ deploy:
   file: blog_frontend/bin
   on:
     repo: enkidulan/blog_frontend
+    tags: true
+    all_branches: true
