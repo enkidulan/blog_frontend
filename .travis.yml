@@ -14,11 +14,11 @@ before_script:
 - npm install
 - bower install
 after_success:
-- pwd
 - ls
-- ls ..
 - git status
 - git add bin
+- cd ..
+- ls
 - sed -ri s/version=\'[0-9\-]+.\'/version=\'$TAGNAME\'/g setup.py
 - cat setup.py
 - git add setup.py
