@@ -5,11 +5,14 @@ before_script:
 - sudo apt-get update --fix-missing
 - sudo apt-get install -qq nodejs npm
 - cd blog_frontend
+- git rm bin -rf
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
 - npm install --quiet -g grunt-cli karma bower
 - npm install
 - bower install
+after_script:
+- git add bin
 script: grunt
 deploy:
   provider: releases
