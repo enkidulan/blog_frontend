@@ -1,24 +1,28 @@
-language: python
-python:
-- "3.4"
-before_script:
-- sudo apt-get update --fix-missing
-- sudo apt-get install -qq nodejs npm
+language: node_js
+node_js:
+- '0.10'
+
+before_install:
 - cd blog_frontend
-- git rm bin -rf
 - export DISPLAY=:99.0
 - sh -e /etc/init.d/xvfb start
-- npm install --quiet -g grunt-cli karma bower
-- npm install
-- bower install
+- npm install -g grunt-cli
+
 script: grunt
+
+before_deploy:
+    - cd ..
+    - echo 'ready to deploy?'
+
 deploy:
-    skip_cleanup: true
-    provider: releases
+  - provider: releases
     api_key:
-        secure: KC7P3xyUUSu0hepYFAUEQj3ieLbVUbQfhyvXlPYC5fcW8wyGIl+1e+8PwM7OHasJFFGMLYSjdBcLk+JuR94ILMwUpcuC2H5/sUY6v5k5s6+AL62qxhUDVJqxMWCaBHVkPhIv8WpVHEokJ/OhV/Ey2TzKmAwlzkn0ZOFKFmNR+1SFDTrZ8xIEhE9BC2qeKs8nb0K/Vdbafkytg1N6rliTm42An/ffZ2KAii32bgPMxuGQMtGzHmtlzV85H/vS2bBPvlXDr/ItGK7gevfN0CdCeWfxQk47fBGbAj+SKcbInwiGiFlJMBl3qYwtXH5hEbSQrM4CPPs9f+VfaASrNuOS5PserFdJT9R8tTdbBnX/D4hMGilEkT+SOrVc5/ge/afywH9VVoxFPqmL6uV3QAssr1lZUbZnC7399Br7TSleXf2cUSrdOl+qpoX1PrpSyCunjcSRyC/DhcCosCvNhHLgOB0bukxuWBTtc/aHzx5j5DIPDKAWI8lQzMr4CiQISrdWYA8YP/d1lN8qP5Fmhibppwm+vQxIRpHKoIbnYXotpeaElbs5geTp9+CA0PeNKwSrCHz5h5LqCfGEzJtuIw1FTqlQ6bZKSA/AoOMFAPFu18JTYp2Ch/h1k3fNjsb1mj+meag7GsuYL7kfC26FVLk+RrmbXqrNu5p9BsI0Je8jNWU=
-    file:
-        - blog_frontend/bin
-    skip_cleanup: true
+      secure: KC7P3xyUUSu0hepYFAUEQj3ieLbVUbQfhyvXlPYC5fcW8wyGIl+1e+8PwM7OHasJFFGMLYSjdBcLk+JuR94ILMwUpcuC2H5/sUY6v5k5s6+AL62qxhUDVJqxMWCaBHVkPhIv8WpVHEokJ/OhV/Ey2TzKmAwlzkn0ZOFKFmNR+1SFDTrZ8xIEhE9BC2qeKs8nb0K/Vdbafkytg1N6rliTm42An/ffZ2KAii32bgPMxuGQMtGzHmtlzV85H/vS2bBPvlXDr/ItGK7gevfN0CdCeWfxQk47fBGbAj+SKcbInwiGiFlJMBl3qYwtXH5hEbSQrM4CPPs9f+VfaASrNuOS5PserFdJT9R8tTdbBnX/D4hMGilEkT+SOrVc5/ge/afywH9VVoxFPqmL6uV3QAssr1lZUbZnC7399Br7TSleXf2cUSrdOl+qpoX1PrpSyCunjcSRyC/DhcCosCvNhHLgOB0bukxuWBTtc/aHzx5j5DIPDKAWI8lQzMr4CiQISrdWYA8YP/d1lN8qP5Fmhibppwm+vQxIRpHKoIbnYXotpeaElbs5geTp9+CA0PeNKwSrCHz5h5LqCfGEzJtuIw1FTqlQ6bZKSA/AoOMFAPFu18JTYp2Ch/h1k3fNjsb1mj+meag7GsuYL7kfC26FVLk+RrmbXqrNu5p9BsI0Je8jNWU=
+    file: blog_frontend
     on:
-        tags: true
+      repo: enkidulan/blog_frontend
+      tags: true
+      all_branches: true
+
+after_deploy:
+- echo 'deployed!'
