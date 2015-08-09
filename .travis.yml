@@ -1,19 +1,17 @@
 language: node_js
 node_js:
-- '0.10'
-
+    - '0.10'
 before_install:
-- cd blog_frontend
-- export DISPLAY=:99.0
-- sh -e /etc/init.d/xvfb start
-- npm install -g grunt-cli
-
+    - cd blog_frontend
+    - export DISPLAY=:99.0
+    - sh -e /etc/init.d/xvfb start
+    - npm install --quiet -g grunt-cli karma bower
+    - npm install
+    - bower install
 script: grunt
-
 before_deploy:
     - cd ..
     - echo 'ready to deploy?'
-
 deploy:
   - provider: releases
     api_key:
@@ -25,4 +23,4 @@ deploy:
       all_branches: true
 
 after_deploy:
-- echo 'deployed!'
+    - echo 'deployed!'
