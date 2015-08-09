@@ -14,8 +14,10 @@ before_script:
 - npm install
 - bower install
 after_success:
+- git status
 - git add bin
 - sed -ri s/version=\'[0-9\-]+.\'/version=\'$TAGNAME\'/g setup.py
+- cat setup.py
 - git add setup.py
 - git commit -m "preparing new version $TAGNAME"
 - git fetch --tags
