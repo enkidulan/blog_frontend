@@ -1,21 +1,21 @@
 # The container definition we want to use for developing our app
-box: docker/whalesay
+box: fedora
 
 build:
   steps:
     - script:
         name: installing env dependensies and starting X
         code: |
-          apt-get update
-          apt-get install -qq nodejs npm
-          apt-get install -qq xserver-xephyr xvfb
-          apt-get install -qq firefox
+          yum update
+          yum install -qq node nodejs npm
+          yum install -qq xserver-xephyr xvfb
+          yum install -qq firefox
           Xvfb :10 -ac & export DISPLAY=:10
     - script:
         name: installing frontend app dependencies
         code: |
           cd blog_frontend
-          npm install --quiet -g grunt-cli karma bower
+          npm install --quiet grunt-cli karma bower
           npm install
           bower install
     - script:
