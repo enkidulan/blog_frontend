@@ -4,11 +4,12 @@ box: nodesource/trusty
 build:
   steps:
     - script:
-        name: X starting
+        name: installing env dependensies and starting X
         code: |
           apt-get update
           apt-get install -qq xserver-xephyr xvfb firefox
           Xvfb :10 -ac & export DISPLAY=:10
+          cd blog_frontend
     - npm-install
     - script:
         name: bower install
