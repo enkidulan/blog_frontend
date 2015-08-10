@@ -7,7 +7,9 @@ build:
         name: installing env dependensies and starting X
         code: |
           apt-get update
-          apt-get install -qq nodejs npm xserver-xephyr xvfb firefox
+          apt-get install -qq nodejs npm
+          apt-get install -qq xserver-xephyr xvfb
+          apt-get install -qq firefox
           Xvfb :10 -ac & export DISPLAY=:10
           cd blog_frontend
     - npm-install
