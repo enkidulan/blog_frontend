@@ -6,7 +6,6 @@ build:
     - script:
         name: installing env dependensies and starting X
         code: |
-          yum update
           yum install -qq node nodejs npm -y
           yum install -qq xserver-xephyr xvfb -y
           yum install -qq firefox -y
