@@ -7,9 +7,9 @@ build:
         name: installing env dependensies and starting X
         code: |
           yum update
-          yum install -qq node nodejs npm
-          yum install -qq xserver-xephyr xvfb
-          yum install -qq firefox
+          yum install -qq node nodejs npm -y
+          yum install -qq xserver-xephyr xvfb -y
+          yum install -qq firefox -y
           Xvfb :10 -ac & export DISPLAY=:10
     - script:
         name: installing frontend app dependencies
