@@ -6,7 +6,7 @@ build:
     - script:
         name: installing env dependensies and starting X
         code: |
-          yum install -qq node nodejs npm -y
+          yum install -qq node nodejs npm make -y
           yum install -qq xorg-x11-server-Xvfb -y
           yum install -qq firefox -y
           Xvfb :99 -ac & export DISPLAY=:99
@@ -14,8 +14,7 @@ build:
         name: installing frontend app dependencies
         code: |
           cd blog_frontend
-          npm install --quiet grunt-cli karma bower
-          npm install
+          npm install --quiet
           bower install
     - script:
         name: grunt
