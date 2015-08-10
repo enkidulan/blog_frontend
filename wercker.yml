@@ -6,6 +6,8 @@ build:
     - script:
         name: X starting
         code: |
+          apt-get update
+          apt-get install -qq xserver-xephyr xvfb
           export DISPLAY=:99.0
           sh -e xvfb start
     - npm-install
