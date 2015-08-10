@@ -9,7 +9,7 @@ build:
           apt-get update
           apt-get install -qq xserver-xephyr xvfb
           export DISPLAY=:99.0
-          sh -e xvfb start
+          sh -e /etc/init.d/xvfb start
     - npm-install
     - script:
         name: bower install
