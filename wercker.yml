@@ -11,11 +11,12 @@ build:
           apt-get install -qq xserver-xephyr xvfb
           apt-get install -qq firefox
           Xvfb :10 -ac & export DISPLAY=:10
-          cd blog_frontend
-    - npm-install
     - script:
-        name: bower install
+        name: installing frontend app dependencies
         code: |
+          cd blog_frontend
+          npm install --quiet -g grunt-cli karma bower
+          npm install
           bower install
     - script:
         name: grunt
