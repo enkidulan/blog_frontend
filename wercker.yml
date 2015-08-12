@@ -19,9 +19,6 @@ build:
           npm install --quiet  --allow-root
           npm install grunt --save-dev --quiet  --allow-root
           bower install --allow-root  --config.interactive=false
-    - script:
-        name: grunt
-        code: |
           Xvfb :99 -ac & export DISPLAY=:99
           dbus-uuidgen > /var/lib/dbus/machine-id
           grunt
