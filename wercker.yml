@@ -15,8 +15,8 @@ build:
         name: installing frontend app dependencies
         code: |
           cd blog_frontend
-          npm install --quiet
-          npm install grunt --save-dev --quiet
+          npm install --quiet  --allow-root
+          npm install grunt --save-dev --quiet  --allow-root
           bower install grunt---allow-root --config.interactive=false
           bower install --allow-root  --config.interactive=false
     - script:
