@@ -21,12 +21,12 @@ build:
         code: |
           cd blog_frontend
           npm install --quiet
-          bower install grunt-cli --allow-root --config.interactive=false
+          bower install grunt-cli grunt --allow-root --config.interactive=false
           bower install --allow-root  --config.interactive=false
     - script:
         name: grunt
         code: |
-          /usr/bin/grunt
+          grunt
 
 #deploy:
 #  enki_dist:
