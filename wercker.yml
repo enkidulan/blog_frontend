@@ -1,17 +1,20 @@
 # The container definition we want to use for developing our app
-box: fedora
+box: enkidulan/blog_testing_env
 
 build:
   steps:
+#    - script:
+#        name: installing env dependensies
+#        code: |
+#          dnf install -y -qq git
+#          dnf install -y -qq node nodejs npm
+#          dnf install -y -qq make xorg-x11-server-Xvfb
+#          dnf install -y -qq firefox
+#          npm install -g grunt-cli karma bower --quiet
     - script:
-        name: installing env dependensies and starting X
+        name: starting X
         code: |
-          yum install -y -qq git
-          yum install -y -qq node nodejs npm
-          yum install -y -qq make xorg-x11-server-Xvfb
-          yum install -y -qq firefox
           Xvfb :99 -ac & export DISPLAY=:99
-          npm install grunt-cli karma bower --quiet -g
     - script:
         name: installing frontend app dependencies
         code: |
