@@ -34,16 +34,16 @@ deploy:
   - add-to-known_hosts:
        hostname: $hostname
        # fingerprint: ce:83:e9:7d:02:a4:e3:63:3f:8a:07:cc:d5:d9:bb:cd
-  - script:
-     name: installing dependensies
-     code: |
-       pip install jarn.mkrelease
+  # - script:
+  #    name: installing dependensies
+  #    code: |
+  #      pip install jarn.mkrelease
   - script:
      name: set up for git
      code: |
        git config --global user.email "enkidulan@gmail.com"
-       git config --global user.name "wercker builder"
-       git config --global push.default simple
+#       git config --global user.name "wercker builder"
+#       git config --global push.default simple
   - add-ssh-key:
      keyname: enkid_dist_ssh
      host: github.com
