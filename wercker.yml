@@ -6,7 +6,10 @@ build:
     - script:
         name: installing env dependensies and starting X
         code: |
-          yum install -qq node nodejs npm make xorg-x11-server-Xvfb firefox git -y
+          yum install -y -qq git
+          yum install -y -qq node nodejs npm
+          yum install -y -qq make xorg-x11-server-Xvfb
+          yum install -y -qq firefox
           Xvfb :99 -ac & export DISPLAY=:99
           npm install grunt-cli karma bower --quiet -g
     - script:
