@@ -21,11 +21,11 @@ build:
         name: installing frontend app dependencies and building app
         code: |
           npm install --quiet  --allow-root
-#          npm install grunt --save-dev --quiet  --allow-root
           bower install grunt --allow-root --config.interactive=false
           bower install --allow-root  --config.interactive=false
           grunt
 
+#          npm install grunt --save-dev --quiet  --allow-root
 #deploy:
 #  enki_dist:
 #  - add-ssh-key:
