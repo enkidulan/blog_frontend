@@ -11,7 +11,7 @@ build:
 #          dnf install -y -qq make xorg-x11-server-Xvfb
 #          dnf install -y -qq firefox
 #          npm install -g grunt-cli karma bower --quiet
-   - script:
+    - script:
        name: build env clean up
        code: |
           git rm blog_frontend/bin/ -r
