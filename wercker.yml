@@ -27,29 +27,29 @@ build:
           grunt
 
 deploy:
- enki_dist:
- - add-ssh-key:
+  enki_dist:
+  - add-ssh-key:
      keyname: enkid_dist_ssh
      host: $hostname
- - add-to-known_hosts:
+  - add-to-known_hosts:
        hostname: $hostname
        # fingerprint: ce:83:e9:7d:02:a4:e3:63:3f:8a:07:cc:d5:d9:bb:cd
- - script:
+  - script:
      name: installing dependensies
      code: |
        pip install jarn.mkrelease
- - script:
+  - script:
      name: set up for git
      code: |
        git config --global user.email "enkidulan@gmail.com"
        git config --global user.name "wercker builder"
        git config --global push.default simple
- - add-ssh-key:
+  - add-ssh-key:
      keyname: enkid_dist_ssh
      host: github.com
- - add-to-known_hosts:
+  - add-to-known_hosts:
        hostname: github.com
- - script:
+  - script:
      name: releasing to dist
      code: |
        TAGNAME=`date +"v1.0.%Y%m%d%H%M"`
