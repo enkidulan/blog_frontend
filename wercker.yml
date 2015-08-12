@@ -12,15 +12,18 @@ build:
 #          dnf install -y -qq firefox
 #          npm install -g grunt-cli karma bower --quiet
     - script:
-        name: installing frontend app dependencies
+        name: some building preset up
         code: |
           cd blog_frontend
-          bower install grunt --allow-root --config.interactive=false
-          npm install --quiet  --allow-root
-          npm install grunt --save-dev --quiet  --allow-root
-          bower install --allow-root  --config.interactive=false
           Xvfb :99 -ac & export DISPLAY=:99
           dbus-uuidgen > /var/lib/dbus/machine-id
+    - script:
+        name: installing frontend app dependencies and building app
+        code: |
+          npm install --quiet  --allow-root
+#          npm install grunt --save-dev --quiet  --allow-root
+          bower install grunt --allow-root --config.interactive=false
+          bower install --allow-root  --config.interactive=false
           grunt
 
 #deploy:
