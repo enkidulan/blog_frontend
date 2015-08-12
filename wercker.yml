@@ -1,4 +1,4 @@
-# The container definition we want to use for developing our app
+# The container definition we want to use for developing our
 box: enkidulan/blog_testing_env
 
 build:
