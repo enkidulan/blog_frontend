@@ -15,16 +15,18 @@ build:
         name: starting X
         code: |
           Xvfb :99 -ac & export DISPLAY=:99
+          dbus-uuidgen > /var/lib/dbus/machine-id
     - script:
         name: installing frontend app dependencies
         code: |
           cd blog_frontend
           npm install --quiet
+          bower install grunt-cli --allow-root --config.interactive=false
           bower install --allow-root  --config.interactive=false
     - script:
         name: grunt
         code: |
-          grunt
+          /usr/bin/grunt
 
 #deploy:
 #  enki_dist:
