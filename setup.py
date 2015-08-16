@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 
 
 setup(name='blog_frontend',
-      version='v1.0.0',
+      version='v1.0.201508161243',
       packages=find_packages(),
       include_package_data=True,
       zip_safe=False,
