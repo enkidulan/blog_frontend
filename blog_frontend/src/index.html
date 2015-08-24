@@ -3,23 +3,10 @@
   <head>
     <title ng-bind="pageTitle"></title>
 
-    <!-- social media tags -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:site" content="@joshdmiller">
-    <meta name="twitter:title" content="ngBoilerplate">
-    <meta name="twitter:description" content="Non-Trivial AngularJS Made Easy: Everything you need to kickstart AngularJS projects: a best-practice directory structure, an intelligent build system, and the best web design libraries around.">
-    <meta name="twitter:creator" content="@joshdmiller">
-    <meta name="twitter:image:src" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846">
-    <meta property="og:title" content="ngBoilerplate" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://bit.ly/ngBoilerplate" />
-    <meta property="og:image" content="https://a248.e.akamai.net/assets.github.com/images/modules/logos_page/Octocat.png?1366128846" />
-    <meta property="og:description" content="Non-Trivial AngularJS Made Easy: Everything you need to kickstart AngularJS projects: a best-practice directory structure, an intelligent build system, and the best web design libraries around.">
-
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- font awesome from BootstrapCDN -->
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<!--     <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
 
     <!-- compiled CSS --><% styles.forEach( function ( file ) { %>
     <link rel="stylesheet" type="text/css" href="<%= file %>" /><% }); %>
@@ -28,40 +15,90 @@
     <script type="text/javascript" src="<%= file %>"></script><% }); %>
 
     <!-- it's stupid to have to load it here, but this is for the +1 button -->
-    <script type="text/javascript" src="https://apis.google.com/js/plusone.js">
+    <!--script type="text/javascript" src="https://apis.google.com/js/plusone.js">
       { "parsetags": "explicit" }
-    </script>
+    </script-->
   </head>
   <body>
+
     <div class="container">
       <div class="navbar navbar-default">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
-            ng-click="menuCollapsed = ! menuCollapsed">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="navbar-brand">
-            ngbp
-            <small>
-              <a href="http://github.com/ngbp/ngbp/blob/v<%= version %>-release/CHANGELOG.md">
-                v<%= version %>
-              </a>
-            </small>
+
+        <div class="row">
+
+          <div class="col-md-4 pull-right">
+
+            <div class="navbar-header">
+
+<!--               <button type="button" class="navbar-toggle" ng-init="menuCollapsed = true"
+                ng-click="menuCollapsed = ! menuCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button> -->
+
+              <div class="row">
+                <div class="col-md-6 col-xs-6">
+                  <a class="navbar-brand" href="#">
+                    <img alt="Enkidulan" src="/assets/logo.png">
+                  </a>
+                </div>
+                <div class="col-md-6 col-xs-6">
+                  <div class="navbar-brand slogan">
+                    Welcome to Enkidulan's sharing space
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <!-- <div class="collapse navbar-collapse" collapse="menuCollapsed"> -->
+                  <div>
+                    <ul class="nav nav-tabs">
+                      <li ui-sref-active="active">
+                        <a href ui-sref="home">
+                          <i class="fa fa-home"></i>
+                          Blog
+                        </a>
+                      </li>
+                      <li ui-sref-active="active">
+                        <a href ui-sref="projects">
+                          <i class="fa fa-home"></i>
+                          Projects
+                        </a>
+                      </li>
+                      <li ui-sref-active="active">
+                        <a href ui-sref="tools">
+                          <i class="fa fa-home"></i>
+                          Tools
+                        </a>
+                      </li>
+                      <li ui-sref-active="active">
+                        <a href ui-sref="about">
+                          <i class="fa fa-home"></i>
+                          About
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+            </div>
           </div>
+
+          <div class="col-md-8 pull-left page-title bottom-align-text">
+            <h1>Welcome to Enkidulan's sharing space Welcome to Enkidulan's sharing space</h1>
+          </div>
+
+
         </div>
-        <div class="collapse navbar-collapse" collapse="menuCollapsed">
-          <ul class="nav navbar-nav">
-            <li ui-sref-active="active">
-              <a href ui-sref="home">
-                <i class="fa fa-home"></i>
-                Home
-              </a>
-            </li>
-          </ul>
-        </div>
+
+
+
+
+
       </div>
     </div>
 
