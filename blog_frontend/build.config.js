@@ -22,7 +22,7 @@ module.exports = {
   app_files: {
     js: [ 'src/**/*.js', '!src/**/*.spec.js', '!src/assets/**/*.js' ],
     jsunit: [ 'src/**/*.spec.js' ],
-    
+
     coffee: [ 'src/**/*.coffee', '!src/**/*.spec.coffee' ],
     coffeeunit: [ 'src/**/*.spec.coffee' ],
 
@@ -71,6 +71,7 @@ module.exports = {
     css: [
     ],
     assets: [
+      'vendor/bootstrap/fonts/glyphicons-halflings-regular.woff2'
     ]
   },
 };
