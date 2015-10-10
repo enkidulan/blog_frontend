@@ -17,87 +17,88 @@
   </head>
   <body>
 
-    <div class="container">
-      <div class="navbar navbar-default">
+  <div class="container">
 
-        <div class="row">
-
-          <div class="col-md-4 pull-right col-xs-12">
-
-            <div class="navbar-header">
-
-
-              <div class="row">
-                <div class="col-md-6 col-xs-5">
-                  <a class="navbar-brand" href="#">
-                    <img alt="Enkidulan" src="/assets/logo.png">
-                  </a>
+      <!-- navigation bar -->
+      <div class="row">
+          <div class="navbar navbar-default">
+              <div class="col-md-4 pull-right col-xs-12">
+                <div class="navbar-header">
+                    <!-- logo -->
+                    <div class="col-md-6 col-xs-6">
+                      <a href="#">
+                        <img alt="Enkidulan" src="/assets/logo.png">
+                      </a>
+                    </div>
+                    <!-- slogan -->
+                    <div class="col-md-6 col-xs-6">
+                      <div class="navbar-brand slogan">
+                        Welcome to Enkidulan's sharing space
+                      </div>
+                    </div>
                 </div>
-                <div class="col-md-6 col-xs-5" ng-init="show_naw=false">
-                  <div class="navbar-brand slogan" ng-click="show_naw=!show_naw">
-                    Welcome to Enkidulan's sharing space
-                    <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span>
-                  </div>
-
-                </div>
-
               </div>
+              <!-- page title -->
+              <div class="col-md-8 pull-left col-xs-12 page-title">
+                <h1>Welcome to Enkidulan's sharing space Welcome to Enkidulan's sharing space</h1>
+              </div>
+          </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-md-9">
+          <div ui-view="main"></div>
+        </div>
+        <div class="col-md-3">
+          <div class="list-group">
+            <a href class="list-group-item" ui-sref="home" ui-sref-active="active">
+              <h4 class="list-group-item-heading">Blog</h4>
+              <img alt="Enkidulan" src="/assets/image1.png">
+              <p class="list-group-item-text">
+                  Some of my thought can be found here
+              </p>
+            </a>
+            <a href class="list-group-item" ui-sref="projects" ui-sref-active="active">
+              <h4 class="list-group-item-heading">Projects</h4>
+              <img alt="Enkidulan" src="/assets/image2.png">
+              <p class="list-group-item-text">
+                  My project and stuff I support or involve in.
+              </p>
+            </a>
+            <a href class="list-group-item" ui-sref="tools" ui-sref-active="active">
+              <h4 class="list-group-item-heading">Tools</h4>
+              <img alt="Enkidulan" src="/assets/image3.png">
+              <p class="list-group-item-text">
+                  Things that I'm using and recommending theme to all.
+              </p>
+            </a>
+            <a href class="list-group-item" ui-sref="about" ui-sref-active="active">
+              <h4 class="list-group-item-heading">About</h4>
+              <img alt="Enkidulan" src="/assets/image4.png">
+              <p class="list-group-item-text">
+                  Page about me.
+              </p>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <footer class="footer">
+          <div class="container">
+            <div class="footer-inner">
+
+              <p>
+                (c) 2015 Maksym Shalenyi (enkidulan).
+              </p>
 
             </div>
           </div>
-
-
-          <div class="col-md-8 pull-left col-xs-12 page-title">
-            <h1>Welcome to Enkidulan's sharing space Welcome to Enkidulan's sharing space</h1>
-          </div>
-
-                    <div class="col-xs-12" ng-show="show_naw">
-                      <ul class="nav nav-tabs">
-                        <li ui-sref-active="active">
-                          <a href ui-sref="home">
-                            <i class="fa fa-home"></i>
-                            Blog
-                          </a>
-                        </li>
-                        <li ui-sref-active="active">
-                          <a href ui-sref="projects">
-                            <i class="fa fa-home"></i>
-                            Projects
-                          </a>
-                        </li>
-                        <li ui-sref-active="active">
-                          <a href ui-sref="tools">
-                            <i class="fa fa-home"></i>
-                            Tools
-                          </a>
-                        </li>
-                        <li ui-sref-active="active">
-                          <a href ui-sref="about">
-                            <i class="fa fa-home"></i>
-                            About
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-
-        </div>
-
-
+        </footer>
       </div>
-    </div>
 
-    <div class="container" ui-view="main"></div>
+</div>
 
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-inner">
-
-          <p>
-            (c) 2015 Maksym Shalenyi (enkidulan).
-          </p>
-
-        </div>
-      </div>
-    </footer>
   </body>
 </html>
