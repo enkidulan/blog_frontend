@@ -12,7 +12,7 @@
  * The dependencies block here is also where component dependencies should be
  * specified, as shown below.
  */
-angular.module( 'ngBoilerplate.home', [
+angular.module( 'ngBoilerplate.blog', [
   'ui.router',
   'plusOne'
 ])
@@ -23,22 +23,48 @@ angular.module( 'ngBoilerplate.home', [
  * this way makes each module more "self-contained".
  */
 .config(function config( $stateProvider ) {
-  $stateProvider.state( 'home', {
-    url: '/home',
+  $stateProvider.state( 'blog', {
+    url: '/blog',
+    // abstract: true,
     views: {
       "main": {
-        controller: 'HomeCtrl',
-        templateUrl: 'home/home.tpl.html'
+        templateUrl: 'blog/blog.tpl.html',
+        controller: 'BlogCtrl'
       }
     },
-    data:{ pageTitle: 'Home' }
+    data:{ pageTitle: 'Blog' }
+  })
+  .state( 'blog.item', {
+    url: '/{name}',
+    views: {
+      "main": {
+        templateUrl: 'blog/blog_item.tpl.html',
+        controller: 'BlogItemCtrl'
+      }
+    },
+    data:{ pageTitle: 'Blog' }
   });
 })
 
-/**
+/**$state
  * And of course we define a controller for our route.
  */
-.controller( 'HomeCtrl', function HomeController( $scope ) {
+.controller( 'BlogCtrl', function BlogCtrlController( $scope, $state, $http ) {
+    $http.get(
+        '/dfsd',
+        {params: {page: 0, description_only: true}}
+    ).then(function(data){
+        $state.go('blog.item', {name: data.data.items[0].name});
+    });
+})
+
+.controller( 'BlogItemCtrl', function BlogItemCtrlController( $scope, $http, $stateParams, $sce ) {
+    $http.get(
+        $stateParams.name
+    ).then(function(data){
+        $scope.data = data.data;
+        $scope.data.text = $sce.trustAsHtml($scope.data.text);
+    });
 })
 
 ;
