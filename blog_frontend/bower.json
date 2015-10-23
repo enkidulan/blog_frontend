@@ -5,7 +5,7 @@
     "angular": "~1.4",
     "angular-mocks": "~1.4",
     "bootstrap": "~3.3",
-    "angular-bootstrap": "~0.13",
+    "angular-bootstrap": "~0.14.2",
     "angular-ui-router": "~0.2"
   },
   "dependencies": {}

@@ -1,9 +1,16 @@
-<h1>{{data.title}}</h1>
+<div class="row">
+    <small class="pull-right">
+        Published by
+        <strong>{{data.author}}</strong>
+        on
+        <strong>{{data.pubdate}}</strong>
+    </small>
+</div>
+<div class="row">
+    <p ng-bind-html="data.text"></p>
+</div>
 
-
-<p ng-bind-html="data.text"></p>
-
-{{data}}
+<!-- {{data}} -->
 
 <!-- <div class="jumbotron">
 

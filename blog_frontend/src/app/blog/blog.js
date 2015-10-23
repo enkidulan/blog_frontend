@@ -50,19 +50,33 @@ angular.module( 'ngBoilerplate.blog', [
  * And of course we define a controller for our route.
  */
 .controller( 'BlogCtrl', function BlogCtrlController( $scope, $state, $http ) {
+    $scope.totalItems = 0;
+    $scope.currentPage = 0;
+    $scope.items = [];
+
+    $scope.$watch('currentPage', function(){
+        if (! $scope.items.length){
+          return;
+        }
+        $state.go('blog.item', {name: $scope.items[$scope.currentPage-1].name});
+    });
+
     $http.get(
-        '/dfsd',
+        '/blog',
         {params: {page: 0, description_only: true}}
     ).then(function(data){
-        $state.go('blog.item', {name: data.data.items[0].name});
+        $scope.totalItems = data.data.pages;
+        $scope.currentPage = data.data.page + 1;
+        $scope.items = data.data.items;
     });
 })
 
-.controller( 'BlogItemCtrl', function BlogItemCtrlController( $scope, $http, $stateParams, $sce ) {
+.controller( 'BlogItemCtrl', function BlogItemCtrlController( $rootScope, $scope, $http, $stateParams, $sce ) {
     $http.get(
         $stateParams.name
     ).then(function(data){
         $scope.data = data.data;
+        $rootScope.articleTitle = $scope.data.title;
         $scope.data.text = $sce.trustAsHtml($scope.data.text);
     });
 })

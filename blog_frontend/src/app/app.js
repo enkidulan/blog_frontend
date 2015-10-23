@@ -3,6 +3,7 @@ angular.module( 'ngBoilerplate', [
   'templates-common',
   'ngBoilerplate.blog',
   'ngBoilerplate.about',
+  'ui.bootstrap',
   'ui.router'
 ])
 
@@ -13,7 +14,8 @@ angular.module( 'ngBoilerplate', [
 .run( function run () {
 })
 
-.controller( 'AppCtrl', function AppCtrl ( $scope, $location ) {
+.controller( 'AppCtrl', function AppCtrl ( $scope, $rootScope, $location ) {
+  $rootScope.articleTitle = 'Welcome to Enkidulan\'s';
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
       $scope.pageTitle = toState.data.pageTitle + ' | Enkidulan' ;
