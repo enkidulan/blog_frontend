@@ -73,7 +73,7 @@ angular.module( 'ngBoilerplate.blog', [
 
 .controller( 'BlogItemCtrl', function BlogItemCtrlController( $rootScope, $scope, $http, $stateParams, $sce ) {
     $http.get(
-        $stateParams.name
+        '/blog_posts/' + $stateParams.name
     ).then(function(data){
         $scope.data = data.data;
         $rootScope.articleTitle = $scope.data.title;
