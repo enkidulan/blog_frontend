@@ -15,7 +15,7 @@ angular.module( 'ngBoilerplate', [
 })
 
 .controller( 'AppCtrl', function AppCtrl ( $scope, $rootScope, $location ) {
-  $rootScope.articleTitle = 'Welcome to Enkidulan\'s';
+  $rootScope.articleTitle = 'Welcome to Enkidulan\'s sharing space';
   $scope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if ( angular.isDefined( toState.data.pageTitle ) ) {
       $scope.pageTitle = toState.data.pageTitle + ' | Enkidulan' ;

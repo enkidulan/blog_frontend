@@ -16,8 +16,9 @@ angular.module( 'ngBoilerplate.about', [
   });
 })
 
-.controller( 'AboutCtrl', function AboutCtrl( $scope ) {
+.controller( 'AboutCtrl', function AboutCtrl( $scope, $rootScope ) {
   // This is simple a demo for UI Boostrap.
+  $rootScope.articleTitle = 'I\'m glad that you want to know more about me :)';
   $scope.dropdownDemoItems = [
     "The first choice!",
     "And another choice for you.",
