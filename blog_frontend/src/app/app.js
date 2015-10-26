@@ -4,7 +4,8 @@ angular.module( 'ngBoilerplate', [
   'ngBoilerplate.blog',
   'ngBoilerplate.about',
   'ui.bootstrap',
-  'ui.router'
+  'ui.router',
+  'cgBusy'
 ])
 
 .config( function myAppConfig ( $stateProvider, $urlRouterProvider ) {

@@ -61,7 +61,7 @@ angular.module( 'ngBoilerplate.blog', [
         $state.go('blog.item', {name: $scope.items[$scope.currentPage-1].name});
     });
 
-    $http.get(
+    $scope.contentListPromise = $http.get(
         '/blog',
         {params: {page: 0, description_only: true}}
     ).then(function(data){
@@ -72,7 +72,7 @@ angular.module( 'ngBoilerplate.blog', [
 })
 
 .controller( 'BlogItemCtrl', function BlogItemCtrlController( $rootScope, $scope, $http, $stateParams, $sce ) {
-    $http.get(
+    $scope.contentPromise = $http.get(
         '/blog_posts/' + $stateParams.name
     ).then(function(data){
         $scope.data = data.data;
